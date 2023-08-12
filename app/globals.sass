@@ -1,25 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&family=Montserrat+Alternates&family=Roboto&display=swap')
 :root
   --max-width: 1100px
-  --border-radius: 12px
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace
   // FONTS 
-  --uniq-text-rgb: 106, 4,15
-  // BACKGROUNDS
-  --foreground-rgb: 255, 255, 255
-  --background-start-rgb: 21, 29, 200
-  --background-end-rgb: 255, 255, 255
-  --tile-start-rgb: 239, 245, 249
-  --tile-end-rgb: 228, 232, 233
-  --callout-rgb: 238, 240, 241
-  --callout-border-rgb: 172, 175, 176
-  --card-rgb: 180, 185, 188
-  --card-border-rgb: 131, 134, 135
+  --luxurious-font: 'Luxurious Script', cursive
+  --montserrat-font: 'Montserrat Alternates', sans-serif
+  // COLORS
+  --white: #fff
+  --uniq-text: #6A040F
+  --secound-text: #333
+  --black: #000
+  --main-card-back: #fff
+  --card-title-background: rgba(117,117,117,0.2 )
+  // BACKGROUND GRADIENT
+  --item-card-background-gradient: linear-gradient(134deg, rgba(221, 214, 243, 0.50) 0%, rgba(250, 172, 168, 0.50) 100%)
 
 *
   padding: 0
   margin: 0
-  
 
 html, body
   height: 100% !important
@@ -27,25 +25,19 @@ html, body
   overflow-x: hidden
 
 body
-
+  color: var(--white)
+  background: var(--black)
   header, footer
-    height: 10% !important
+    height: 7.5% !important
 
   main
     flex: 1
     height: 90%
-    font-family: 'Montserrat Alternates', sans-serif
-a
-  color: inherit
-  text-decoration: underline
-  margin-left: 10px
+    font-family: var(--montserrat-font)
 
 .text_logo
   font-size: 60px
   font-weight: 100
-  color: rgb(var(--uniq-text-rgb))
-  font-family: 'Luxurious Script', cursive
+  color: var(--uniq-text)
+  font-family: var(--luxurious-font)
 
-@media (prefers-color-scheme: dark)
-  html
-    color-scheme: dark
