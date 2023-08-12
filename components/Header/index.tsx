@@ -6,10 +6,10 @@ import Link from "next/link";
 export default function HeaderComponent() {
     return (
         <Header className={s.header}>
-            <h1>MovieHub</h1>
+            <h1 className={'text_logo'}>MovieHub</h1>
             <div>
                 <Link href={""}>Series</Link>
-                <Link href={""}>Series</Link>
+                <Link href={""}>Films</Link>
             </div>
             <div></div>
         </Header>
