@@ -1,7 +1,7 @@
 'use client'
 import { Footer } from "antd/es/layout/layout"
 import s from "./style.module.sass"
-import Image from 'next/image';
+import { InstagramOutlined, TwitterOutlined } from "@ant-design/icons/lib/icons"
 
 export default function FooterComponent() {
     const currentYear = new Date().getFullYear();
@@ -14,8 +14,8 @@ export default function FooterComponent() {
             </div>
             <h1 className={'text_logo'}>MovieHub</h1>
             <div>
-            <a href=""><Image src="/assets/icons/instagram.png" alt="instagram link" width={24} height={24} /></a>
-            <a href=""><Image src="/assets/icons/twitter.png" alt="Twitter link" width={24} height={24} /></a>
+                <a href="http/www.instagram.com"><InstagramOutlined /></a>
+                <a href="http/www.instagram.com"><TwitterOutlined /></a>
             </div>
         </Footer>
     );

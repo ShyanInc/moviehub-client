@@ -1,10 +1,15 @@
 'use client';
-import { Header } from 'antd/es/layout/layout';
-import s from './style.module.sass';
-import Link from 'next/link';
-import { Input } from 'antd';
+import { Header } from 'antd/es/layout/layout'
+import s from './style.module.sass'
+import Link from 'next/link'
+import { Input } from 'antd'
+import { SearchOutlined } from '@ant-design/icons/lib/icons'
+import { useState } from 'react'
+import UserAvatar from '../UserAvatar';
 
 export default function HeaderComponent() {
+    const [search, setSearch] = useState("")
+
     return (
         <Header className={s.header}>
             <h1 className={'text_logo'}>MovieHub</h1>
@@ -12,18 +17,20 @@ export default function HeaderComponent() {
                 <Link href={''}>Series</Link>
                 <Link href={''}>Films</Link>
             </div>
-            <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
-                <line x1="16.361" y1="17.654" x2="23.2609" y2="24.854" stroke="#333333"/>
-                <path
-                    d="M20.2213 10.0654C20.2213 15.3347 15.8203 19.6308 10.3607 19.6308C4.90105 19.6308 0.5 15.3347 0.5 10.0654C0.5 4.7961 4.90105 0.5 10.3607 0.5C15.8203 0.5 20.2213 4.7961 20.2213 10.0654Z"
-                    stroke="#333333"/>
-            </svg>
             <div>
-                <Input
-                    className={s.search}
-                    placeholder="Search"
-                    allowClear/>
+                <div className={s.user_search}>
+                    <div>
+                        <Input
+                            className={s.search}
+                            placeholder="Search"
+                            onInput={(e) => setSearch(e.currentTarget.value)}  
+                            />
+                            {search.length < 1 && <SearchOutlined className={s.search_icon}/>}
+                    </div>
+                    <UserAvatar/>
+                </div>
             </div>
         </Header>
+        
     );
 }
