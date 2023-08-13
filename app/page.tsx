@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import s from './page.module.sass'
 
-
 export default function Home() {
   return (
     <main className={s.main}>
