@@ -14,8 +14,8 @@ export default function FooterComponent() {
             </div>
             <h1 className={'text_logo'}>MovieHub</h1>
             <div>
-            <a href=""><Image src="/instagram.png" alt="instagram link" width={24} height={24} /></a>
-            <a href=""><Image src="/twitter.png" alt="Twitter link" width={24} height={24} /></a>
+            <a href=""><Image src="/assets/icons/instagram.png" alt="instagram link" width={24} height={24} /></a>
+            <a href=""><Image src="/assets/icons/twitter.png" alt="Twitter link" width={24} height={24} /></a>
             </div>
         </Footer>
     );
