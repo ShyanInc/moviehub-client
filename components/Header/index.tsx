@@ -11,15 +11,16 @@ export default function HeaderComponent() {
     const [search, setSearch] = useState("")
 
     return (
-        <Header className={s.header}>
+        <Header className={s.header + ' container'}>
             <h1 className={'text_logo'}>MovieHub</h1>
             <div className={s.section}>
                 <Link href={''}>Series</Link>
                 <Link href={''}>Films</Link>
             </div>
+            
             <div>
                 <div className={s.user_search}>
-                    <div>
+                <div>
                         <Input
                             className={s.search}
                             placeholder="Search"
@@ -31,6 +32,5 @@ export default function HeaderComponent() {
                 </div>
             </div>
         </Header>
-        
     );
 }
