@@ -1,9 +1,9 @@
 @-webkit-keyframes pulse 
   0% 
-    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4)
+    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.75)
   
-  70% 
-      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0)
+  75% 
+      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0.5)
   
   100% 
       -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0)
@@ -11,16 +11,16 @@
 
 @keyframes pulse 
   0% 
-    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4)
-    box-shadow: 0 0 0 0 rgba(204,169,44, 0.4)
+    -moz-box-shadow: 0 0 0 0 rgba(25, 15, 136, 0.75)
+    box-shadow: 0 0 2.5px 1px rgba(255, 255, 255, 1)
   
-  70% 
-      -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0)
-      box-shadow: 0 0 0 10px rgba(204,169,44, 0)
+  75% 
+      -moz-box-shadow: 0 0 0 10px rgba(204,169,44,0.5)
+      box-shadow: 0 0 5px 5px var(--uniq-text)
   
   100% 
       -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0)
-      box-shadow: 0 0 0 0 rgba(204,169,44, 0)
+      box-shadow: 0 0 0 2.5px rgba(62, 0, 247, 0.75)
   
 
 
@@ -45,5 +45,5 @@
     .search
         border-radius: 50px
         border: none
-        box-shadow: 0 0 0 rgba(255, 255, 255, 1)
-        animation: pulse 2s infinite
+        box-shadow: 0 0 0 var(--uniq-text)
+        animation: pulse 3s infinite
