@@ -6,7 +6,7 @@ import { Input } from 'antd';
 
 export default function HeaderComponent() {
     return (
-        <Header className={s.header}>
+        <Header className={s.header + ' container'}>
             <h1 className={'text_logo'}>MovieHub</h1>
             <div className={s.section}>
                 <Link href={''}>Series</Link>

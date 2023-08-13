@@ -4,7 +4,7 @@ import s from './page.module.sass'
 export default function Home() {
   return (
     <main className={s.main}>
-      <div>
+      <div className={'container'}>
       <h1 className={s.entry_text}>Welcome to MovieHUB</h1>
       <p>
         With MovieHub, you can effortlessly<br/>
