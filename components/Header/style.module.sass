@@ -1,26 +1,26 @@
 @-webkit-keyframes pulse 
   0% 
-    -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0.75)
+    -webkit-box-shadow: 0 0 2.5px 1px #fff
   
   75% 
-      -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0.5)
+      -webkit-box-shadow: 0 0 20px 5px var(--uniq-text)
   
   100% 
-      -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0)
+      -webkit-box-shadow: 0 0 0 2.5px var(--uniq-text)
   
 
 @keyframes pulse 
   0% 
-    -moz-box-shadow: 0 0 0 0 rgba(25, 15, 136, 0.75)
-    box-shadow: 0 0 2.5px 1px rgba(255, 255, 255, 1)
+    -moz-box-shadow: 0 0 2.5px 1px #fff
+    box-shadow: 0 0 2.5px 1px #fff
   
   75% 
-      -moz-box-shadow: 0 0 0 10px rgba(204,169,44,0.5)
-      box-shadow: 0 0 5px 5px var(--uniq-text)
+      -moz-box-shadow: 0 0 20px 5px var(--uniq-text)
+      box-shadow: 0 0 20px 5px var(--uniq-text)
   
   100% 
-      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0)
-      box-shadow: 0 0 0 2.5px rgba(62, 0, 247, 0.75)
+      -moz-box-shadow: 0 0 0 2.5px var(--uniq-text)
+      box-shadow: 0 0 0 2.5px var(--uniq-text)
   
 
 
@@ -44,8 +44,22 @@
             font-weight: 400
             line-height: normal
             text-decoration-line: underline
-    .search
-        border-radius: 50px
-        border: none
-        box-shadow: 0 0 0 var(--uniq-text)
-        animation: pulse 3s infinite
+       
+    div
+      display: flex
+      flex-direction: row
+      align-items: center
+      .user_search
+        display: flex
+        gap: 100px  
+        .search
+            width: 300px
+            border-radius: 50px
+            border: none
+            box-shadow: 0 0 0 var(--uniq-text)
+            animation: pulse 3s infinite
+        .search_icon
+          width: 0
+          color: var(--secound-text)
+          position: relative
+          right: 20px  
