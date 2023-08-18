@@ -8,11 +8,6 @@ import Link from "next/link";
 
 export default function UserAvatar() {
   const session = useSession();
-  console.log(session);
-  useEffect(() => {
-    console.log(session);
-
-  }, [session])
 
   return (
     <div className={s.Auth}>
