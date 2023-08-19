@@ -4,7 +4,7 @@ import s from "./style.module.sass";
 import { useGetAllMoviesQuery } from "../api/auth/movies/movies.api";
 
 export default function Profile() {
-    const { data, error, isLoading } = useGetAllMoviesQuery({limit: 2});
+    const { data, error, isLoading } = useGetAllMoviesQuery();
     if (error) {
         console.log(error);
     } else if (isLoading) {
