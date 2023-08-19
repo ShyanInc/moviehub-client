@@ -12,7 +12,7 @@ export default function HeaderComponent() {
 
     return (
         <Header className={s.header + ' container'}>
-            <h1 className={'text_logo'}>MovieHub</h1>
+            <Link href={"/"}><h1 className={'text_logo'}>MovieHub</h1></Link>
             <div className={s.section}>
                 <Link href={''}>Series</Link>
                 <Link href={''}>Films</Link>

@@ -2,12 +2,13 @@
 import React, { useState } from "react";
 import { signIn } from "next-auth/react"
 import { Form, Input, Button } from "antd";
-import s from "./style.module.sass"
+import s from "./style.module.sass";
 
-export default function Signin() {
+export default function Signup() {
+  const [username,setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   async function  signInHanlder(e: any) {
     e.preventDefault();
     try {
@@ -19,9 +20,12 @@ export default function Signin() {
   }
 
   return <main>
-      <Form className={s.signInForm + " container"}>
+      <Form className={s.signUpForm + " container"}>
+        <Form.Item label="Username">
+          <Input value={username} onChange={(e) => setUsername(e.target.value)} />
+        </Form.Item>
         <Form.Item label="E-mail">
-          <Input value={email} onChange={(e) => setEmail(e.target.value)} />
+          <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </Form.Item>
         <Form.Item label="Password">
           <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />

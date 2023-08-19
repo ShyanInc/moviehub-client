@@ -1,14 +1,8 @@
 import type { NextAuthOptions, User } from "next-auth"
-import GitHubProvider from "next-auth/providers/github"
 import CredentialsProvider from "next-auth/providers/credentials"
-import { json } from "stream/consumers"
 
 export const options: NextAuthOptions = {
   providers: [
-    // GitHubProvider({
-    //   clientId: process.env.GITHUB_ID as string,
-    //   clientSecret: process.env.GITHUB_SECRET as string
-    // }),
     CredentialsProvider({
       name: "credentials",
       credentials: {
@@ -36,7 +30,7 @@ export const options: NextAuthOptions = {
         const user = await res.json();
         console.log(user)
         if (user)
-          return user
+          return user as User
         else
           throw new Error("Error");
           
