@@ -1,0 +1,39 @@
+export interface Role {
+  id: number;
+  value: string;
+  description: string;
+}
+
+export interface User {
+  id: number;
+  email: string;
+  password: string;
+  banned: boolean;
+  banReason: string;
+  roles: Role[];
+}
+
+export interface Genre {
+  id: number;
+  value: string;
+  description: string;
+}
+
+export interface Movie {
+  id: number;
+  translatedTitle: string;
+  originalTitle: string;
+  country: string[];
+  year: number;
+  genres: Genre[];
+  director: string[];
+  actors: string[];
+  screenwriters: string[];
+  producers: string[];
+  budget: number;
+  ageRestriction: number;
+  duration: number;
+  coverImage: string;
+  trailer: string;
+  rating: number;
+}
