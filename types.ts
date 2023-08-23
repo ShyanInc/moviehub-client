@@ -33,7 +33,7 @@ export interface Movie {
   budget: number;
   ageRestriction: number;
   duration: number;
-  coverImage: string;
-  trailer: string;
+  coverImage?: string;
+  trailer?: string;
   rating: number;
 }
