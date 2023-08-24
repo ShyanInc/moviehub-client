@@ -38,7 +38,7 @@ export interface Movie {
   rating: number;
 }
 
-export interface Serie {
+export interface Series {
   id: number;
   translatedTitle: string;
   originalTitle: string;
