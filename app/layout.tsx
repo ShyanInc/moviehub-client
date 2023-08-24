@@ -1,38 +1,35 @@
-import './globals.sass'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import s from './layout.module.sass'
-import { Providers } from './api/auth/helpers/session'
-import { Provider } from 'react-redux'
-import { ApiProvider } from '@reduxjs/toolkit/dist/query/react'
-import { store } from './store'
-import { moviesApi } from './api/auth/movies/movies.api'
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import { StoreProvider } from '@/redux/store-provider';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import { Providers } from './api/auth/helpers/session';
+import './globals.sass';
+import s from './layout.module.sass';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'MovieHub',
   description: 'Movie Tracker',
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={inter.className + ' ' + s.body}>
-        <Providers>
-          <Provider store={store}>
+        <StoreProvider>
+          <Providers>
             <Header />
             {children}
             <Footer />
-          </Provider>
-        </Providers>
+          </Providers>
+        </StoreProvider>
       </body>
-    </html >
-  )
+    </html>
+  );
 }
