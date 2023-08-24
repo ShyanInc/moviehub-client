@@ -4,10 +4,11 @@ import { Pagination } from 'antd';
 import Image from 'next/image';
 import { useState } from 'react';
 import s from './style.module.sass';
-import { IMovie } from '@/app/api/auth/movies/movies.api';
+import { Movie } from '@/types';
+
 interface Props {
   name: string;
-  array: IMovie[];
+  array: Movie[];
 }
 
 export default function CardItemtoMap({ name, array }: Props) {
