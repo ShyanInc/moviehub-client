@@ -37,3 +37,22 @@ export interface Movie {
   trailer?: string;
   rating: number;
 }
+
+export interface Series {
+  id: number;
+  translatedTitle: string;
+  originalTitle: string;
+  country: string[];
+  year: number;
+  seasonsCount: number;
+  genres: Genre[];
+  director: string[];
+  actors: string[];
+  screenwriters: string[];
+  producers: string[];
+  ageRestriction: number;
+  episodeDuration: number;
+  coverImage: string;
+  trailer: string;
+  rating: number;
+}

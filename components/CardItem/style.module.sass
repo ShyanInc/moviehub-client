@@ -1,6 +1,7 @@
 .cardName
     margin-top: 15px
     font-size: 32px
+    color: var(--second-text)
     text-transform: uppercase
 
 .itemsCard
@@ -12,7 +13,6 @@
     gap: 25px
 
     .item
-        border: 1px solid white
         border-radius: 20px
         width: 300px
         height: 300px
@@ -22,9 +22,15 @@
         align-items: center
         background: var(--item-card-background-gradient)
 
+        .itemInfo
+            color: var(--second-text)
+            div
+                display: flex
+                flex-direction: row
+
 .pagination
-    margin-bottom: 25px
-    &*
+    margin-bottom: 25px 
+    *
         border: none !important
         color: var(--second-text) !important
         background: white !important

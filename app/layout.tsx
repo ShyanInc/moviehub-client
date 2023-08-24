@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import { StoreProvider } from '@/redux/store-provider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { Providers } from './api/auth/helpers/session';
+import { Providers } from './helpers/session';
 import './globals.sass';
 import s from './layout.module.sass';
 

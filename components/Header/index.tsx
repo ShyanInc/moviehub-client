@@ -17,7 +17,7 @@ export default function HeaderComponent() {
       </Link>
       <div className={s.navigation}>
         <Link href={'/movies'}>Movies</Link>
-        <Link href={''}>Series</Link>
+        <Link href={'/series'}>Series</Link>
       </div>
 
       <div>
