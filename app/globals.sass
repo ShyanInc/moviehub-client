@@ -7,7 +7,7 @@
   // COLORS
   --white: #fff
   --uniq-text: #6A040F
-  --secound-text: #333
+  --second-text: #333
   --black: #000
   --main-card-back: #fff
   --card-title-background: rgba(117, 117, 117, 0.2)
@@ -38,6 +38,8 @@ body
   font-weight: 100
   color: var(--uniq-text)
   font-family: var(--luxurious-font)
+  @media(max-width: 1024px)
+    font-size: 42px
 
 .container
   max-width: 1536px
@@ -57,9 +59,8 @@ body
 
 @media (max-width: 768px)
   .container
-    max-width: 420px
+    width: 100%
 
 @media (max-width: 640px)
   .container
-    width: 100%
     padding: 0 12px
