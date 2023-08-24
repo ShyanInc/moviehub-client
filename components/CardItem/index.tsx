@@ -4,15 +4,16 @@ import { Pagination } from 'antd';
 import Image from 'next/image';
 import { useState } from 'react';
 import s from './style.module.sass';
+import { IMovie } from '@/app/api/auth/movies/movies.api';
 interface Props {
   name: string;
-  array: any[];
+  array: IMovie[];
 }
 
 export default function CardItemtoMap({ name, array }: Props) {
   const [page, setPage] = useState({
     pageNumber: 1,
-    pageSize: 6,
+    pageSize: 5,
     pageTotal: array.length,
   });
 
