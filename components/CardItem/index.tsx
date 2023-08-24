@@ -4,7 +4,7 @@ import { Pagination } from 'antd';
 import Image from 'next/image';
 import { useState } from 'react';
 import s from './style.module.sass';
-import { Genre, Movie, Serie } from '@/types';
+import { Genre, Movie, Series } from '@/types';
 import { currPath } from '@/app/helpers/pathName';
 
 interface Props {
