@@ -1,11 +1,11 @@
 'use client';
-import { Header } from 'antd/es/layout/layout';
-import s from './style.module.sass';
-import Link from 'next/link';
-import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons/lib/icons';
+import { Input } from 'antd';
+import { Header } from 'antd/es/layout/layout';
+import Link from 'next/link';
 import { useState } from 'react';
 import UserAvatar from '../UserAvatar';
+import s from './style.module.sass';
 
 export default function HeaderComponent() {
   const [search, setSearch] = useState('');

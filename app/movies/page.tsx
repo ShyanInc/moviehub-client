@@ -1,14 +1,15 @@
-'use client'
-import React from 'react'
-import s from "./style.module.sass"
-import CardItemtoMap from '../../components/CardItem'
+import { moviesApi } from '@/api/api';
+import Movies from '@/components/Movies';
+import s from './style.module.sass';
 
-export default function moviesPage() {
-    return (
-        <main>
-            <div className={s.moviesPage + " container"}>
-                <CardItemtoMap name={"movies"} array={[{ id: 1 }, { id: 45 }, { id: 34 }, { id: 23 }, { id: 3 }, { id: 5 }, { id: 4 }]} />
-            </div>
-        </main>
-    )
+export default async function moviesPage() {
+  const movies = await moviesApi.getMovies();
+
+  return (
+    <main>
+      <div className={s.moviesPage + ' container'}>
+        <Movies initialMovies={movies} />
+      </div>
+    </main>
+  );
 }
