@@ -16,7 +16,7 @@ export default function HeaderComponent() {
         <h1 className={'text_logo'}>MovieHub</h1>
       </Link>
       <div className={s.navigation}>
-        <Link href={''}>Movies</Link>
+        <Link href={'/movies'}>Movies</Link>
         <Link href={''}>Series</Link>
       </div>
 
