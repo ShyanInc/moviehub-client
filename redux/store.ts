@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import moviesReducer from './slices/moviesSlice';
-import { Movie,Series } from '@/types';
+import seriesReducer from "./slices/seriesSlice";
 
 // export interface IState {
 //   movies: Movie[];
@@ -15,6 +15,7 @@ import { Movie,Series } from '@/types';
 export const store = configureStore({
   reducer: {
     movies: moviesReducer,
+    series: seriesReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
 });
