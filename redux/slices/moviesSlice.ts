@@ -1,11 +1,11 @@
 import { Movie } from '@/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-export interface moviesState {
+export interface MoviesState {
   movies: Movie[];
 }
 
-const initialState: moviesState = {
+const initialState: MoviesState = {
   movies: [],
 };
 
