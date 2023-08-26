@@ -9,10 +9,11 @@ export default function Signin() {
   const onFinish = async () => {
     try {
       const res = await signIn('credentials', {
-        email: form.getFieldValue('email'),
+        username: form.getFieldValue('username'),
         password: form.getFieldValue('password'),
         redirect: false,
       });
+
       if (res?.error) {
         message.error('Invalid credentials');
       } else {
@@ -37,11 +38,11 @@ export default function Signin() {
         className={s.signInForm + ' container'}
       >
         <Form.Item
-          label='Email'
-          name={'email'}
+          label='Username'
+          name={'username'}
           rules={[
-            { required: true, message: 'Please input your email' },
-            { type: 'email', message: 'Invalid email' },
+            { required: true, message: 'Please input your username' },
+            { min: 3, max: 18, message: 'Min length is 3, Max length is 18' },
           ]}
         >
           <Input />
@@ -49,7 +50,14 @@ export default function Signin() {
         <Form.Item
           label='Password'
           name={'password'}
-          rules={[{ required: true, message: 'Please input your password' }]}
+          rules={[
+            { required: true, message: 'Please input your password' },
+            {
+              min: 4,
+              max: 32,
+              message: 'Min length is 4, Max length is 32',
+            },
+          ]}
         >
           <Input.Password type='password' />
         </Form.Item>
