@@ -1,10 +1,9 @@
 'use client';
-import s from '../Header/style.module.sass';
-import { useEffect } from 'react';
 import { UserOutlined } from '@ant-design/icons/lib/icons';
 import Avatar from 'antd/es/avatar/avatar';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
+import s from '../Header/style.module.sass';
 
 export default function UserAvatar() {
   const session = useSession();

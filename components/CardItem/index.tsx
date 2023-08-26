@@ -1,17 +1,16 @@
 'use client';
 
+import { currPath } from '@/app/helpers/pathName';
+import { Genre } from '@/types';
 import { Pagination } from 'antd';
 import Image from 'next/image';
 import { useState } from 'react';
 import s from './style.module.sass';
-import { Genre, Movie, Series } from '@/types';
-import { currPath } from '@/app/helpers/pathName';
 
 interface Props {
   name: string;
   array: any[];
 }
-
 
 export default function CardItemtoMap({ name, array }: Props) {
   const [page, setPage] = useState({
@@ -20,13 +19,12 @@ export default function CardItemtoMap({ name, array }: Props) {
     pageTotal: array.length,
   });
 
-
   const sliceArray = (array: any[], pageNumber: number, pageSize: number) => {
     const start = (pageNumber - 1) * pageSize;
     const end = start + pageSize;
     return array.slice(start, end);
   };
-  console.log(currPath())
+  console.log(currPath());
 
   return (
     <>
@@ -45,13 +43,39 @@ export default function CardItemtoMap({ name, array }: Props) {
             <div className={s.itemInfo}>
               <p>{i.translatedTitle}</p>
               <p>{i.originalTitle}</p>
-              <div>{i.country?.map((i: string) => <p key={i}>{i}</p>)}</div>
+              <div>
+                {i.country?.map((i: string) => (
+                  <p key={i}>{i}</p>
+                ))}
+              </div>
               <p>{i.year}</p>
-              <div>{i.genres?.map((i: Genre) => <div key={i.id}><p>{i.value}</p></div>)}</div>
-              <div>{i.director?.map((i: string) => <p key={i}>{i}</p>)}</div>
-              <div>{i.actors?.map((i: string) => <p key={i}>{i}</p>)}</div>
-              <div>{i.screenwriters?.map((i: string) => <p key={i}>{i}</p>)}</div>
-              <div>{i.producers?.map((i: string) => <p key={i}>{i}</p>)}</div>
+              <div>
+                {i.genres?.map((i: Genre) => (
+                  <div key={i.id}>
+                    <p>{i.value}</p>
+                  </div>
+                ))}
+              </div>
+              <div>
+                {i.director?.map((i: string) => (
+                  <p key={i}>{i}</p>
+                ))}
+              </div>
+              <div>
+                {i.actors?.map((i: string) => (
+                  <p key={i}>{i}</p>
+                ))}
+              </div>
+              <div>
+                {i.screenwriters?.map((i: string) => (
+                  <p key={i}>{i}</p>
+                ))}
+              </div>
+              <div>
+                {i.producers?.map((i: string) => (
+                  <p key={i}>{i}</p>
+                ))}
+              </div>
               <p>{i.budget}$</p>
               <p>{i.ageRestriction}+</p>
               <p>{i.duration}min</p>
