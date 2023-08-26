@@ -3,19 +3,13 @@ import { seriesApi } from "@/api/api";
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
-export interface InitSeriesState {
+export interface SeriesState {
     series: Series[];
 }
 
-const initialState: InitSeriesState = {
+const initialState: SeriesState = {
     series: [],
 };
-
-export const getSeries = createAsyncThunk("series/getSeries", async () => {
-    const series = await seriesApi.getSeries();
-    return series;
-
-})
 
 export const seriesSlice = createSlice({
     name: 'series',
@@ -24,11 +18,6 @@ export const seriesSlice = createSlice({
         setSeries: (state, action: PayloadAction<Series[]>) => {
         state.series = action.payload;
       },
-    },
-    extraReducers: (builder) => {
-      builder.addCase(getSeries.fulfilled, (state, action) => {
-        state.series = action.payload;
-      });
     },
   });
 
