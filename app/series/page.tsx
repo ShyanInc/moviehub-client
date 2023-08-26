@@ -9,8 +9,10 @@ export default async function SeriesPage() {
     console.log(series);
 
     return (
-        <main className={s.seriesPage + " container"}>
-           <Series initialMovies={series} />
+        <main >
+            <div className={s.seriesPage + " container"}>
+                <Series initialMovies={series} />
+            </div>
         </main>
     )
 }
