@@ -6,12 +6,11 @@ import s from "./style.module.sass"
 
 export default async function SeriesPage() {
     const series = await seriesApi.getSeries();
-    console.log(series);
 
     return (
         <main >
             <div className={s.seriesPage + " container"}>
-                <Series initialMovies={series} />
+                <Series initialSeries={series} />
             </div>
         </main>
     )
