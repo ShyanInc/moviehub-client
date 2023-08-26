@@ -7,16 +7,16 @@ import CardItemtoMap from '../CardItem';
 import { setSeries } from '@/redux/slices/seriesSlice';
 
 type Props = {
-  initialMovies: Series[];
+  initialSeries: Series[];
 };
 
-const Series = ({ initialMovies }: Props) => {
+const Series = ({ initialSeries }: Props) => {
   const dispatch = useAppDispatch();
   const series = useAppSelector((state) => state.series.series);
 
   useEffect(() => {
-    dispatch(setSeries(initialMovies));
-  }, [dispatch, initialMovies]);
+    dispatch(setSeries(initialSeries));
+  }, [dispatch, initialSeries]);
 
   return <CardItemtoMap name='Series' array={series} />;
 };
