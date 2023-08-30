@@ -2,7 +2,7 @@
 
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { setMovies } from '@/redux/slices/moviesSlice';
-import { Movie } from '@/types';
+import { Movie } from '@/types/types';
 import { useEffect } from 'react';
 import CardItemtoMap from '../CardItem';
 

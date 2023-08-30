@@ -1,4 +1,4 @@
-import { Movie } from '@/types';
+import { Movie } from '@/types/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export interface MoviesState {

@@ -1,7 +1,7 @@
 'use client';
 
 import { currPath } from '@/app/helpers/pathName';
-import { Genre } from '@/types';
+import { Genre } from '@/types/types';
 import { Pagination } from 'antd';
 import Image from 'next/image';
 import { useState } from 'react';

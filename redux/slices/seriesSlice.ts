@@ -1,4 +1,4 @@
-import { Series } from '@/types';
+import { Series } from '@/types/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export interface SeriesState {

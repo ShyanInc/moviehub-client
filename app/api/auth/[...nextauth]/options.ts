@@ -1,9 +1,14 @@
-import type { NextAuthOptions } from 'next-auth';
+import type { NextAuthOptions, Session } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 const API_BASE_URL = process.env.API_BASE_URL;
 
+type Token = {
+  accessToken: string;
+};
+
 export const options: NextAuthOptions = {
+  pages: { signIn: '/auth/signin', signOut: '/auth/signout' },
   secret: process.env.AUTH_SECRET,
   providers: [
     CredentialsProvider({
@@ -39,14 +44,13 @@ export const options: NextAuthOptions = {
       },
     }),
   ],
-  pages: { signIn: '/auth/signin', signOut: '/auth/signout' },
-  // callbacks: {
-  //   async redirect({ url, baseUrl }) {
-  //     // Allows relative callback URLs
-  //     if (url.startsWith('/')) return `${baseUrl}${url}`;
-  //     // Allows callback URLs on the same origin
-  //     else if (new URL(url).origin === baseUrl) return url;
-  //     return baseUrl;
-  //   },
-  // },
+  callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user };
+    },
+    async session({ session, token }) {
+      session.user = token as Token;
+      return session;
+    },
+  },
 };

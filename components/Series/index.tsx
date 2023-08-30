@@ -1,7 +1,7 @@
 'use client';
 
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import {  Series } from '@/types';
+import { Series } from '@/types/types';
 import { useEffect } from 'react';
 import CardItemtoMap from '../CardItem';
 import { setSeries } from '@/redux/slices/seriesSlice';
