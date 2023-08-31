@@ -44,41 +44,38 @@ export default function CardItemToMap({ name, array }: Props) {
               <p>{i.translatedTitle}</p>
               <p>{i.originalTitle}</p>
               <div>
+                <h3>Country:</h3>
                 {i.country?.map((i: string) => (
                   <p key={i}>{i}</p>
                 ))}
               </div>
-              <p>{i.year}</p>
+              <div>
+                <h3>Year:</h3>
+                <p>{i.year}</p>
+              </div>
               <div>
                 {i.genres?.map((i: Genre) => (
                   <div key={i.id}>
+                    <h3>Genres:</h3>
                     <p>{i.value}</p>
                   </div>
                 ))}
               </div>
+
               <div>
-                {i.director?.map((i: string) => (
-                  <p key={i}>{i}</p>
-                ))}
-              </div>
-              <div>
+                <h3>Actors:</h3>
                 {i.actors?.map((i: string) => (
                   <p key={i}>{i}</p>
                 ))}
               </div>
               <div>
-                {i.screenwriters?.map((i: string) => (
-                  <p key={i}>{i}</p>
-                ))}
+                <h3>Duration:</h3>
+                <p> {i.duration}min</p>
               </div>
               <div>
-                {i.producers?.map((i: string) => (
-                  <p key={i}>{i}</p>
-                ))}
+                <h3>Age:</h3>
+                <p>{i.ageRestriction}+</p>
               </div>
-              <p>{i.budget}$</p>
-              <p>{i.ageRestriction}+</p>
-              <p>{i.duration}min</p>
               <p>{i.rating}</p>
             </div>
           </div>
