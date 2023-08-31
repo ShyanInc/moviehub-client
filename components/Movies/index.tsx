@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { setMovies } from '@/redux/slices/moviesSlice';
 import { Movie } from '@/types/types';
 import { useEffect } from 'react';
-import CardItemtoMap from '../CardItem';
+import CardItemToMap from '../CardItem';
 
 type Props = {
   initialMovies: Movie[];
@@ -18,7 +18,7 @@ const Movies = ({ initialMovies }: Props) => {
     dispatch(setMovies(initialMovies));
   }, [dispatch, initialMovies]);
 
-  return <CardItemtoMap name='Movies' array={movies} />;
+  return <CardItemToMap name='Movies' array={movies} />;
 };
 
 export default Movies;

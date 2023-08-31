@@ -3,7 +3,7 @@
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { Series } from '@/types/types';
 import { useEffect } from 'react';
-import CardItemtoMap from '../CardItem';
+import CardItemToMap from '../CardItem';
 import { setSeries } from '@/redux/slices/seriesSlice';
 
 type Props = {
@@ -18,7 +18,7 @@ const Series = ({ initialSeries }: Props) => {
     dispatch(setSeries(initialSeries));
   }, [dispatch, initialSeries]);
 
-  return <CardItemtoMap name='Series' array={series} />;
+  return <CardItemToMap name='Series' array={series} />;
 };
 
 export default Series;

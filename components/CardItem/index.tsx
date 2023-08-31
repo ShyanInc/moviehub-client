@@ -12,7 +12,7 @@ interface Props {
   array: any[];
 }
 
-export default function CardItemtoMap({ name, array }: Props) {
+export default function CardItemToMap({ name, array }: Props) {
   const [page, setPage] = useState({
     pageNumber: 1,
     pageSize: 5,
