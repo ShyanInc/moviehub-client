@@ -5,15 +5,24 @@ import { UserOutlined } from "@ant-design/icons/lib/icons";
 import Avatar from "antd/es/avatar/avatar";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import UserBurgerMenu from "../UserMenu";
 
-export default function UserAvatar() {
+export const UserAvatar = ({ session }: { session: any }) => {
+  return (
+    <>
+      {!session?.data && <Avatar icon={<UserOutlined />} />}
+    </>
+  )
+}
+
+export default function UserCompoment() {
   const session = useSession();
 
   return (
     <div className={s.Auth}>
-      {!session.data && <><Avatar icon={<UserOutlined />} /><p>Guest</p><Link href="/api/auth/signin">Sign In</Link></>}
+      {!session.data && <><UserAvatar session={session} /><p>Guest</p><Link href="/api/auth/signin">Sign In</Link></>}
       {session.data && <Link href="#" onClick={() => signOut({ callbackUrl: "/" })}>Sign Out</Link>}
+      <UserBurgerMenu userIcon={<UserAvatar session={session} />} />
     </div>
   );
 }
-
