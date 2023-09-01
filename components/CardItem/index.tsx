@@ -64,17 +64,19 @@ export default function CardItemToMap({ name, array }: Props) {
 
               {/* currPath ? movies || series */}
               <div className={s.itemInfo}>
-                <p>{i.translatedTitle}</p>
-                <p>{i.originalTitle}</p>
+                <div className={s.translatedTitle}>
+                  <p>{i.translatedTitle}</p>
+                </div>
+                <div className={s.originalTitle}>
+                  <p>
+                    {i.originalTitle}, {i.year}, {i.duration} min.
+                  </p>
+                </div>
                 <div>
                   <h3>Country:</h3>
                   {i.country?.map((i: string) => (
                     <p key={i}>{i}</p>
                   ))}
-                </div>
-                <div>
-                  <h3>Year:</h3>
-                  <p>{i.year}</p>
                 </div>
                 <div>
                   {i.genres?.map((i: Genre) => (
@@ -84,20 +86,15 @@ export default function CardItemToMap({ name, array }: Props) {
                     </div>
                   ))}
                 </div>
-
+                <div>
+                  <h3>Age:</h3>
+                  <p>{i.ageRestriction}+</p>
+                </div>
                 <div>
                   <h3>Actors:</h3>
                   {i.actors?.map((i: string) => (
                     <p key={i}>{i}</p>
                   ))}
-                </div>
-                <div>
-                  <h3>Duration:</h3>
-                  <p> {i.duration}min</p>
-                </div>
-                <div>
-                  <h3>Age:</h3>
-                  <p>{i.ageRestriction}+</p>
                 </div>
               </div>
             </div>
