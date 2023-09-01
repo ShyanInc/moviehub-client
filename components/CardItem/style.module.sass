@@ -13,23 +13,73 @@
     gap: 25px
 
     .item
+        padding: 26px
         border-radius: 20px
-        width: 300px
-        height: 300px
+        max-width: 400px
+        height: 340px
         display: flex
-        flex-direction: row
-        justify-content: center
-        align-items: center
+        flex-direction: column
         background: var(--item-card-background-gradient)
+
+        .itemRating
+            margin-left: auto
+            padding-inline: 6px
+            width: 128px
+            height: 54px
+            display: flex
+            align-items: center
+            justify-content: space-evenly
+            background: rgba(51, 51, 51, 0.3)
+            border-radius: 6px
+
+        .ratingTypography
+            margin-left: 6px
+
+            display: flex
+            flex-direction: column
+
+            color: #FFF
+            font-family: Roboto
+            font-size: 30px
+            font-style: normal
+            font-weight: 700
+            line-height: normal
+            letter-spacing: -1.5px
+
+            p
+                display: inline
+                vertical-align: middle
+
+            .postfixTypography
+                font-size: 22px
+                font-weight: 500
+                letter-spacing: -1.1px
+                opacity: 0.5
+
+            .subTypography
+                font-size: 14px
+                font-weight: 500
+                letter-spacing: -0.7px
+                opacity: 0.5
+
+        .itemContent
+            display: flex
+            flex-direction: row
+
+        .cardPoster
+            width: 140px
+            height: 200px
 
         .itemInfo
             color: var(--second-text)
+            display: flex
+            flex-direction: column
             div
                 display: flex
                 flex-direction: row
 
 .pagination
-    margin-bottom: 25px 
+    margin-bottom: 25px
     *
         border: none !important
         color: var(--second-text) !important

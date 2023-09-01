@@ -6,6 +6,8 @@ import { Pagination } from 'antd';
 import Image from 'next/image';
 import { useState } from 'react';
 import s from './style.module.sass';
+import ratingIcon from '@/public/assets/img/star.png';
+import { RatingIcon } from '../SVG/RatingIcon';
 
 interface Props {
   name: string;
@@ -32,51 +34,72 @@ export default function CardItemToMap({ name, array }: Props) {
       <div className={s.itemsCard}>
         {sliceArray(array, page.pageNumber, page.pageSize).map((i: any) => (
           <div key={i.id} className={s.item}>
-            <Image
-              src={'https://picsum.photos/200/300'}
-              width={100}
-              height={150}
-              alt='Picture'
-              quality={75}
-            />
-            {/* currPath ? movies || series */}
-            <div className={s.itemInfo}>
-              <p>{i.translatedTitle}</p>
-              <p>{i.originalTitle}</p>
+            <div className={s.itemRating}>
               <div>
-                <h3>Country:</h3>
-                {i.country?.map((i: string) => (
-                  <p key={i}>{i}</p>
-                ))}
+                {/* <Image
+                  src={ratingIcon}
+                  width={36}
+                  height={36}
+                  alt='Rating Icon'
+                /> */}
+                <RatingIcon />
               </div>
-              <div>
-                <h3>Year:</h3>
-                <p>{i.year}</p>
+              <div className={s.ratingTypography}>
+                <div>
+                  <p>{i.rating}</p>
+                  <p className={s.postfixTypography}> /10</p>
+                </div>
+                <p className={s.subTypography}>2.8 M</p>
               </div>
-              <div>
-                {i.genres?.map((i: Genre) => (
-                  <div key={i.id}>
-                    <h3>Genres:</h3>
-                    <p>{i.value}</p>
-                  </div>
-                ))}
-              </div>
+            </div>
+            <div className={s.itemContent}>
+              <Image
+                src={'https://picsum.photos/200/300'}
+                width={100}
+                height={150}
+                className={s.cardPoster}
+                alt='Card Poster'
+                quality={75}
+              />
 
-              <div>
-                <h3>Actors:</h3>
-                {i.actors?.map((i: string) => (
-                  <p key={i}>{i}</p>
-                ))}
+              {/* currPath ? movies || series */}
+              <div className={s.itemInfo}>
+                <p>{i.translatedTitle}</p>
+                <p>{i.originalTitle}</p>
+                <div>
+                  <h3>Country:</h3>
+                  {i.country?.map((i: string) => (
+                    <p key={i}>{i}</p>
+                  ))}
+                </div>
+                <div>
+                  <h3>Year:</h3>
+                  <p>{i.year}</p>
+                </div>
+                <div>
+                  {i.genres?.map((i: Genre) => (
+                    <div key={i.id}>
+                      <h3>Genres:</h3>
+                      <p>{i.value}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div>
+                  <h3>Actors:</h3>
+                  {i.actors?.map((i: string) => (
+                    <p key={i}>{i}</p>
+                  ))}
+                </div>
+                <div>
+                  <h3>Duration:</h3>
+                  <p> {i.duration}min</p>
+                </div>
+                <div>
+                  <h3>Age:</h3>
+                  <p>{i.ageRestriction}+</p>
+                </div>
               </div>
-              <div>
-                <h3>Duration:</h3>
-                <p> {i.duration}min</p>
-              </div>
-              <div>
-                <h3>Age:</h3>
-                <p>{i.ageRestriction}+</p>
-              </div>
-              <p>{i.rating}</p>
             </div>
           </div>
         ))}
