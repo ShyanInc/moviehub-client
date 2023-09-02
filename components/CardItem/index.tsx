@@ -67,7 +67,7 @@ export default function CardItemToMap({ name, array }: Props) {
                 <div className={s.translatedTitle}>
                   <p>{i.translatedTitle}</p>
                 </div>
-                <div className={s.originalTitle}>
+                <div className={s.infoTitle}>
                   <p>
                     {i.originalTitle}, {i.year}, {i.duration} min.
                   </p>
@@ -87,14 +87,14 @@ export default function CardItemToMap({ name, array }: Props) {
                   ))}
                 </div>
                 <div>
-                  <h3>Age:</h3>
-                  <p>{i.ageRestriction}+</p>
-                </div>
-                <div>
                   <h3>Actors:</h3>
                   {i.actors?.map((i: string) => (
                     <p key={i}>{i}</p>
                   ))}
+                </div>
+                <div>
+                  <h3>Age:</h3>
+                  <p>{i.ageRestriction}+</p>
                 </div>
               </div>
             </div>
