@@ -82,7 +82,7 @@ export default function CardItemToMap({ name, array }: Props) {
                   {i.genres?.map((i: Genre) => (
                     <div key={i.id}>
                       <h3>Genres:</h3>
-                      <p>{i.value}</p>
+                      <p>{i.description}</p>
                     </div>
                   ))}
                 </div>
