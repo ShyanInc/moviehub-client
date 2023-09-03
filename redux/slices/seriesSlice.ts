@@ -6,7 +6,7 @@ export interface SeriesState {
 }
 
 const initialState: SeriesState = {
-  series: [],
+  series: []
 };
 
 export const seriesSlice = createSlice({
@@ -15,8 +15,8 @@ export const seriesSlice = createSlice({
   reducers: {
     setSeries: (state, action: PayloadAction<Series[]>) => {
       state.series = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const { setSeries } = seriesSlice.actions;

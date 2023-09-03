@@ -6,7 +6,7 @@ export interface MoviesState {
 }
 
 const initialState: MoviesState = {
-  movies: [],
+  movies: []
 };
 
 export const moviesSlice = createSlice({
@@ -15,8 +15,8 @@ export const moviesSlice = createSlice({
   reducers: {
     setMovies: (state, action: PayloadAction<Movie[]>) => {
       state.movies = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const { setMovies } = moviesSlice.actions;

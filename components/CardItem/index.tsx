@@ -18,7 +18,7 @@ export default function CardItemToMap({ name, array }: Props) {
   const [page, setPage] = useState({
     pageNumber: 1,
     pageSize: 5,
-    pageTotal: array.length,
+    pageTotal: array.length
   });
 
   const sliceArray = (array: any[], pageNumber: number, pageSize: number) => {
