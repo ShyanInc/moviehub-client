@@ -8,9 +8,11 @@
   color: var(--white)
   @media(max-width: 640px)
     padding: 12px
+
   .navigation
     display: flex
     gap: 40px
+
     a
       font-size: 32px
       color: var(--white)
@@ -26,33 +28,40 @@
     display: flex
     flex-direction: row
     align-items: center
+
     .user_search
       display: flex
       justify-content: flex-end
       max-width: fit-content
+
       .search_block
         width: 100%
         @media(max-width: 768px)
-          width: 50%
+          width: 40%
+
         .search
           border-radius: 50px
           border: none
           box-shadow: 0 0 0 var(--uniq-text)
           animation: pulse 3s infinite
+
         .search_icon
           width: 0
           color: var(--second-text)
           position: relative
           right: 20px
+
   .Auth
     margin-left: 30px
     gap: 10px
     @media(max-width: 1024px)
       margin-left: 5px
+
     a
       color: var(--uniq-text)
       text-decoration: underline
       text-wrap: nowrap
+
       &:hover
         color: var(--white)
 
@@ -60,14 +69,14 @@
   display: none
 
 @-webkit-keyframes pulse
-  0% 
-  -webkit-box-shadow: 0 0 2.5px 1px #fff
+  0%
+    -webkit-box-shadow: 0 0 2.5px 1px #fff
 
-  75% 
-  -webkit-box-shadow: 0 0 20px 5px var(--uniq-text)
+  75%
+    -webkit-box-shadow: 0 0 20 px 5 px var(--uniq-text)
 
-  100% 
-  -webkit-box-shadow: 0 0 0 2.5px var(--uniq-text)
+  100%
+    -webkit-box-shadow: 0 0 0 2.5 px var(--uniq-text)
 
 @keyframes pulse
   0%

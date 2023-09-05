@@ -1,37 +1,109 @@
 .cardName
-    margin-top: 15px
-    font-size: 32px
-    color: var(--second-text)
-    text-transform: uppercase
+  margin-top: 15px
+  font-size: 32px
+  color: var(--second-text)
+  text-transform: uppercase
 
 .itemsCard
-    display: flex
-    flex-direction: row
-    flex-wrap: wrap
-    justify-content: center
-    align-items: center
-    gap: 25px
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  align-items: center
+  gap: 25px
 
-    .item
-        border-radius: 20px
-        width: 300px
-        height: 300px
+  .item
+    padding: 10px 18px
+    border-radius: 20px
+    max-width: 400px
+    height: 340px
+    display: flex
+    flex-direction: column
+    background: var(--item-card-background-gradient)
+
+    .itemRating
+      margin-left: auto
+      padding-inline: 6px
+      width: 128px
+      height: 54px
+      display: flex
+      align-items: center
+      justify-content: space-evenly
+      background: rgba(51, 51, 51, 0.3)
+      border-radius: 6px
+
+    .ratingTypography
+      display: flex
+      flex-direction: column
+
+      color: #FFF
+      font-family: Roboto
+      font-size: 30px
+      font-style: normal
+      font-weight: 700
+      line-height: 1
+      letter-spacing: -1.5px
+
+      p
+        display: inline
+        vertical-align: middle
+
+      .postfixTypography
+        font-size: 22px
+        font-weight: 500
+        letter-spacing: -1.1px
+        opacity: 0.5
+
+      .subTypography
+        font-size: 14px
+        font-weight: 500
+        letter-spacing: -0.7px
+        opacity: 0.5
+
+    .itemContent
+      display: flex
+      flex-direction: row
+      gap: 12px
+
+    .cardPoster
+      width: 140px
+      height: 200px
+      border-radius: 20px
+
+    .itemInfo
+      color: var(--second-text)
+      display: flex
+      flex-direction: column
+      gap: 6px
+      text-wrap: nowrap
+      font-family: Montserrat
+      font-size: 16px
+      color: #111
+
+      div
         display: flex
         flex-direction: row
-        justify-content: center
-        align-items: center
-        background: var(--item-card-background-gradient)
+        flex-wrap: wrap
 
-        .itemInfo
-            color: var(--second-text)
-            div
-                display: flex
-                flex-direction: row
+      h3, p
+        font-size: 18px
+        padding: 0 2px
+
+      .translatedTitle
+        p
+          color: #333
+          font-size: 36px
+
+      .infoTitle
+        p
+          color: rgba(106, 4, 15, 0.75)
+          font-size: 18px
 
 .pagination
-    margin-bottom: 25px 
-    *
-        border: none !important
-        color: var(--second-text) !important
-        background: white !important
-        border-radius: 25px
+  margin-bottom: 25px
+
+  *
+    border: none !important
+    color: var(--second-text) !important
+    background: white !important
+    border-radius: 25px

@@ -1,25 +1,23 @@
-import { Series } from "@/types";
-import { seriesApi } from "@/api/api";
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-
+import { Series } from '@/types/types';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export interface SeriesState {
-    series: Series[];
+  series: Series[];
 }
 
 const initialState: SeriesState = {
-    series: [],
+  series: []
 };
 
 export const seriesSlice = createSlice({
-    name: 'series',
-    initialState,
-    reducers: {
-        setSeries: (state, action: PayloadAction<Series[]>) => {
-        state.series = action.payload;
-      },
-    },
-  });
+  name: 'series',
+  initialState,
+  reducers: {
+    setSeries: (state, action: PayloadAction<Series[]>) => {
+      state.series = action.payload;
+    }
+  }
+});
 
-  export const { setSeries } = seriesSlice.actions;
-  export default seriesSlice.reducer;
+export const { setSeries } = seriesSlice.actions;
+export default seriesSlice.reducer;

@@ -6,6 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import UserBurgerMenu from "../UserMenu";
 
+
 export const UserAvatar = ({ session }: { session: any }) => {
   return (
     <>
@@ -22,7 +23,7 @@ export default function UserCompoment() {
       <div className={s.Auth}>
         <div>
           {!session.data && <><UserAvatar session={session} /><p>Guest</p><Link href="/api/auth/signin">Sign In</Link></>}
-          {session.data && <Link href="#" onClick={() => signOut({ callbackUrl: "/" })}>Sign Out</Link>}
+          {session.data && <Link href="#" onClick={() => signOut({ callbackUrl: "/", redirect: true })}>Sign Out</Link>}
         </div>
       </div>
       <UserBurgerMenu userIcon={<UserAvatar session={session} />} />
