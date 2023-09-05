@@ -33,7 +33,7 @@
       .search_block
         width: 100%
         @media(max-width: 768px)
-          width: 40%
+          width: 50%
         .search
           border-radius: 50px
           border: none
@@ -55,6 +55,9 @@
       text-wrap: nowrap
       &:hover
         color: var(--white)
+
+  .BurgerMenu
+    display: none
 
 @-webkit-keyframes pulse
   0% 
@@ -78,3 +81,22 @@
   100%
     -moz-box-shadow: 0 0 0 2.5px var(--uniq-text)
     box-shadow: 0 0 0 2.5px var(--uniq-text)
+
+@media screen and (max-width:768px)
+  .navigation
+    display: none !important
+
+  .BurgerMenu
+    display: flex !important
+    flex-direction: column
+    height: auto
+    width: 100px
+    border-radius: 20px 
+    z-index: 100
+    margin: 100px 0 0 20px !important
+    
+    .search
+
+  .Auth
+    div
+      display: none !important
