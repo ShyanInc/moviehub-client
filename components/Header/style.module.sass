@@ -65,6 +65,9 @@
       &:hover
         color: var(--white)
 
+.BurgerMenuIcon
+  display: none
+
 @-webkit-keyframes pulse
   0%
     -webkit-box-shadow: 0 0 2.5px 1px #fff
@@ -87,3 +90,49 @@
   100%
     -moz-box-shadow: 0 0 0 2.5px var(--uniq-text)
     box-shadow: 0 0 0 2.5px var(--uniq-text)
+
+@media screen and (max-width:768px)
+  @keyframes cross
+    25%
+      transform: scale(0.5)
+    50%
+      transform: scale(0)
+    75%
+      transform: scale(0.5)
+    100%
+      transform: scale(1)
+  .navigation
+    display: none !important
+
+  .navigation ~ div .search_block
+    margin-right: 25px
+    .search
+      width: 10rem
+
+  .BurgerMenuIcon
+    z-index: 2
+    display: block
+    font-size: 24px
+
+  .BurgerMenuIcon
+    svg
+      &:hover
+        animation: cross 2s infinite
+
+  .burgerMenuList
+    display: block
+    position: absolute
+    text-align: center
+    top: 0
+    left: 0
+    height: 150%
+    width: 100%
+    background-color: var(--black)
+    z-index: 1
+    *
+      font-size: 24px
+      color: var(--uniq-text)
+
+  .Auth
+    div
+      display: none !important
