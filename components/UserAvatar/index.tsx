@@ -18,12 +18,14 @@ export default function UserCompoment() {
   const session = useSession();
 
   return (
-    <div className={s.Auth}>
-      <div>
-        {!session.data && <><UserAvatar session={session} /><p>Guest</p><Link href="/api/auth/signin">Sign In</Link></>}
-        {session.data && <Link href="#" onClick={() => signOut({ callbackUrl: "/" })}>Sign Out</Link>}
+    <>
+      <div className={s.Auth}>
+        <div>
+          {!session.data && <><UserAvatar session={session} /><p>Guest</p><Link href="/api/auth/signin">Sign In</Link></>}
+          {session.data && <Link href="#" onClick={() => signOut({ callbackUrl: "/" })}>Sign Out</Link>}
+        </div>
       </div>
       <UserBurgerMenu userIcon={<UserAvatar session={session} />} />
-    </div>
+    </>
   );
 }

@@ -1,36 +1,46 @@
 import React, { useState } from 'react'
 import s from "../Header/style.module.sass"
-import { Menu, Button } from 'antd'
 import Link from 'next/link'
-import { BarsOutlined } from '@ant-design/icons/lib/icons';
+import { CloseOutlined, UnorderedListOutlined } from '@ant-design/icons'
 
-const menuItems = [
+const links = [
     {
-        title: 'Movies',
-        href: '/movies',
+        label: 'Movies',
+        url: '/movies',
     },
     {
-        title: 'Series',
-        href: '/series',
+        label: 'Series',
+        url: '/series',
     },
-];
+]
 
 export default function UserBurgerMenu({ userIcon }: { userIcon: any }) {
     const [isOpenBurger, setIsOpenBurger] = useState(false)
-    return (<>
-        <Button onClick={() => setIsOpenBurger(!isOpenBurger)}>
-            <BarsOutlined />
-        </Button>
-        {isOpenBurger && <Menu
-            mode="vertical"
-            className={s.BurgerMenu}>
-            {menuItems.map((i, index) =>
-                <Menu.Item key={index}>
-                    <Link href={i.href}>{i.title}</Link>
-                </Menu.Item>
+  
+    return (
+        <>
+            {isOpenBurger ?
+                <CloseOutlined className={s.BurgerMenuIcon + " open"}
+                    onClick={() => setIsOpenBurger(!isOpenBurger)} /> :
+                <UnorderedListOutlined className={s.BurgerMenuIcon}
+                    onClick={() => setIsOpenBurger(!isOpenBurger)} />
+            }
+            {isOpenBurger && (
+                <>
+                    <ul className={s.burgerMenuList}>
+                        {links.map((link) => (
+                            <li key={link.label}>
+                                <Link href={link.url} >
+                                    {link.label}
+                                </Link>
+                            </li>
+                        ))}
+                        <li><Link href={"/profile"}>{userIcon}</Link></li>
+                    </ul>
+                    
+                </>
             )}
-            <Menu.Item><Link href={"/profile"}>{userIcon}</Link></Menu.Item>
-        </Menu>}
-    </>)
+        </>
+    )
 
 }
