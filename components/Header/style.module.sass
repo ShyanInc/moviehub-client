@@ -53,7 +53,12 @@
 
   .Auth
     margin-left: 30px
-    gap: 10px
+    div
+      gap: 10px
+      a
+        &:first-of-type
+          color: var(--white)
+
     @media(max-width: 1024px)
       margin-left: 5px
 
@@ -70,13 +75,13 @@
 
 @-webkit-keyframes pulse
   0%
-    -webkit-box-shadow: 0 0 2.5px 1px #fff
+  -webkit-box-shadow: 0 0 2.5px 1px #fff
 
   75%
-    -webkit-box-shadow: 0 0 20 px 5 px var(--uniq-text)
+  -webkit-box-shadow: 0 0 20 px 5 px var(--uniq-text)
 
   100%
-    -webkit-box-shadow: 0 0 0 2.5 px var(--uniq-text)
+  -webkit-box-shadow: 0 0 0 2.5 px var(--uniq-text)
 
 @keyframes pulse
   0%
