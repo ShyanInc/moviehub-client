@@ -11,25 +11,25 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'MovieHub',
-  description: 'Movie Tracker'
+  description: 'Movie Tracker',
 };
 
 export default function RootLayout({
-                                     children
-                                   }: {
+  children,
+}: {
   children: React.ReactNode;
 }) {
   return (
     <html lang='en'>
-    <body className={inter.className + ' ' + s.body}>
-    <StoreProvider>
-      <Providers>
-        <Header />
-        {children}
-        <Footer />
-      </Providers>
-    </StoreProvider>
-    </body>
+      <body className={inter.className + ' ' + s.body}>
+        <StoreProvider>
+          <Providers>
+            <Header />
+            {children}
+            <Footer />
+          </Providers>
+        </StoreProvider>
+      </body>
     </html>
   );
 }
