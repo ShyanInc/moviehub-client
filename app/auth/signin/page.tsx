@@ -1,7 +1,8 @@
 'use client';
-import { Button, Form, Input, message } from 'antd';
+import { Button, Form,Card, Input, message } from 'antd';
 import { signIn } from 'next-auth/react';
 import s from './style.module.sass';
+import Link from 'antd/es/typography/Link';
 
 export default function Signin() {
   const [form] = Form.useForm();
@@ -30,6 +31,8 @@ export default function Signin() {
 
   return (
     <main>
+      <Card>
+      <h1 className={s.formTitle}>Sign In</h1>
       <Form
         form={form}
         layout='vertical'
@@ -37,6 +40,7 @@ export default function Signin() {
         onFinishFailed={onFinishFailed}
         className={s.signInForm + ' container'}
       >
+        
         <Form.Item
           label='Username'
           name={'username'}
@@ -67,6 +71,12 @@ export default function Signin() {
           </Button>
         </div>
       </Form>
+      <p className={s.registerAcc}>
+        Dont have account ?
+        <br/>
+          <Link href={'/auth/signup'}>Create Account</Link>
+        </p>
+      </Card>
     </main>
   );
 }

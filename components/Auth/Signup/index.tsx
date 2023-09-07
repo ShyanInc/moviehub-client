@@ -1,5 +1,5 @@
 'use client';
-import { Button, Form, Input, message } from 'antd';
+import { Button, Card, Form, Input, message } from 'antd';
 import s from './style.module.sass';
 import { signIn } from 'next-auth/react';
 
@@ -41,6 +41,8 @@ export const SignupForm = ({ signUp }: Props) => {
   };
 
   return (
+    <Card>
+      <h1 className={s.formTitle}>Create Account</h1>
     <Form
       form={form}
       layout='vertical'
@@ -88,5 +90,6 @@ export const SignupForm = ({ signUp }: Props) => {
         </Button>
       </div>
     </Form>
+    </Card>
   );
 };
