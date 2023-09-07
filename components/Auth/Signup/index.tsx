@@ -42,6 +42,7 @@ export const SignupForm = ({ signUp }: Props) => {
 
   return (
     <Card>
+      <h1 className={s.formTitle}>Create Account</h1>
     <Form
       form={form}
       layout='vertical'
