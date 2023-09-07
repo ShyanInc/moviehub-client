@@ -1,8 +1,27 @@
 'use client';
 import { Card, Avatar } from 'antd';
 import s from './style.module.sass';
-
+import { getSession, signIn } from "next-auth/react"
+import { useState, useEffect } from 'react';
+import Preloader from '../loading';
 export default function Profile() {
+  const [loading, setLoading] = useState(true)
+
+  const securePage = async () => {
+    const session = await getSession();
+    if (!session)
+      signIn();
+    else
+    setLoading(!loading)
+  }
+
+  useEffect(() => {
+    securePage()
+  }, [])
+
+  if(loading)
+    return <Preloader/>;
+
   return (
     <main>
       <div className={s.profileCards + ' container'}>
