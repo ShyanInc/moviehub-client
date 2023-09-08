@@ -4,6 +4,7 @@ type Props = {
   };
 };
 
+// TODO: create movie page layout
 export default function Movie({ params }: Props) {
   return (
     <main>
