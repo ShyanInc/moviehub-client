@@ -8,6 +8,7 @@ import { useState } from 'react';
 import s from './style.module.sass';
 import ratingIcon from '@/public/assets/img/star.png';
 import { RatingIcon } from '../SVG/RatingIcon';
+import Link from 'next/link';
 
 interface Props {
   name: string;
@@ -18,7 +19,7 @@ export default function CardItemToMap({ name, array }: Props) {
   const [page, setPage] = useState({
     pageNumber: 1,
     pageSize: 5,
-    pageTotal: array.length
+    pageTotal: array.length,
   });
 
   const sliceArray = (array: any[], pageNumber: number, pageSize: number) => {
@@ -65,7 +66,9 @@ export default function CardItemToMap({ name, array }: Props) {
               {/* currPath ? movies || series */}
               <div className={s.itemInfo}>
                 <div className={s.translatedTitle}>
-                  <p>{i.translatedTitle}</p>
+                  <Link href={`/movies/${i.id}`}>
+                    <p>{i.translatedTitle}</p>
+                  </Link>
                 </div>
                 <div className={s.infoTitle}>
                   <p>
@@ -74,9 +77,7 @@ export default function CardItemToMap({ name, array }: Props) {
                 </div>
                 <div>
                   <h3>Country:</h3>
-                  {i.country?.map((i: string) => (
-                    <p key={i}>{i}</p>
-                  ))}
+                  {i.country?.map((i: string) => <p key={i}>{i}</p>)}
                 </div>
                 <div>
                   {i.genres?.map((i: Genre) => (
@@ -88,9 +89,7 @@ export default function CardItemToMap({ name, array }: Props) {
                 </div>
                 <div>
                   <h3>Actors:</h3>
-                  {i.actors?.map((i: string) => (
-                    <p key={i}>{i}</p>
-                  ))}
+                  {i.actors?.map((i: string) => <p key={i}>{i}</p>)}
                 </div>
                 <div>
                   <h3>Age:</h3>
