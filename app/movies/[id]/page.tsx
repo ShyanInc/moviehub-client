@@ -1,5 +1,6 @@
 import s from './style.module.sass';
 import Image from 'next/image';
+import { ShortDescription } from '@/components/ShortDescription';
 
 type Props = {
   params: {
@@ -33,18 +34,7 @@ export default function Movie({ params }: Props) {
               <div className={s.originalTitle}>The Sopranos</div>
               <button className={s.willWatchBtn}>WILL WATCH</button>
             </div>
-            <div className={s.shortDescription}>
-              <h2>Short Description</h2>
-              <div className={s.shortDescriptionContent}>
-                <p>
-                  Невеста» — таинственная женщина, которая входила в элитный
-                  отряд убийц и считалась экспертом во владении мечом. Однажды
-                  она решила изменить свой образ жизни, покончив с карьерой
-                  наемного убийцы, чтобы выйти замуж за любимого мужчину и
-                  осесть в спокойном месте.
-                </p>
-              </div>
-            </div>
+            <ShortDescription />
             <div className={s.about}>
               <h2>About</h2>
             </div>
