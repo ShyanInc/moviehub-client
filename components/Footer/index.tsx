@@ -6,6 +6,7 @@ import {
   TwitterOutlined,
 } from '@ant-design/icons/lib/icons';
 import Link from 'next/link';
+import { Logo } from '../SVG/Logo';
 
 export default function FooterComponent() {
   const currentYear = new Date().getFullYear();
@@ -19,7 +20,7 @@ export default function FooterComponent() {
         <div>Copyright {currentYear}</div>
       </div>
       <Link href={'/'}>
-        <h1 className={'text_logo'}>MovieHub</h1>
+        <Logo />
       </Link>
       <div className={s.social}>
         <Link
