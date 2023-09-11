@@ -6,7 +6,11 @@ import collapseIcon from '@/public/assets/icons/collapse.png';
 import expandIcon from '@/public/assets/icons/expand.png';
 import Image from 'next/image';
 
-export const ShortDescription = () => {
+type Props = {
+  description: string;
+};
+
+export const ShortDescription = ({ description }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
@@ -24,12 +28,7 @@ export const ShortDescription = () => {
         )}
       </div>
       <div className={(!isOpen && s.hidden) + ' ' + s.shortDescriptionContent}>
-        <p>
-          Невеста» — таинственная женщина, которая входила в элитный отряд убийц
-          и считалась экспертом во владении мечом. Однажды она решила изменить
-          свой образ жизни, покончив с карьерой наемного убийцы, чтобы выйти
-          замуж за любимого мужчину и осесть в спокойном месте.
-        </p>
+        <p>{description}</p>
       </div>
     </div>
   );

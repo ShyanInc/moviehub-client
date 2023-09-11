@@ -36,6 +36,7 @@ export interface Movie {
   coverImage?: string;
   trailer?: string;
   rating: number;
+  description: string;
 }
 
 export interface Series {
@@ -55,4 +56,5 @@ export interface Series {
   coverImage: string;
   trailer: string;
   rating: number;
+  description: string;
 }

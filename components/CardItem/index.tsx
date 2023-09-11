@@ -21,14 +21,12 @@ export default function CardItemToMap({ name, array }: Props) {
     pageSize: 5,
     pageTotal: array.length,
   });
-
   const sliceArray = (array: any[], pageNumber: number, pageSize: number) => {
     const start = (pageNumber - 1) * pageSize;
     const end = start + pageSize;
     return array.slice(start, end);
   };
   console.log(currPath());
-
   return (
     <>
       <h1 className={s.cardName}>{name}</h1>
