@@ -10,6 +10,8 @@ type Props = {
 };
 
 export const Movie = ({ movieInfo }: Props) => {
+  const genres = movieInfo.genres.map((genre) => genre.description);
+
   return (
     <div className={s.movieBlock}>
       <div className={s.movieRating}>
@@ -36,6 +38,26 @@ export const Movie = ({ movieInfo }: Props) => {
           <ShortDescription description={movieInfo.description} />
           <div className={s.about}>
             <h2>About</h2>
+            <div>
+              <h3>Year: </h3>
+              <p>{movieInfo.year}</p>
+            </div>
+            <div>
+              <h3>Country: </h3>
+              <p>{movieInfo.country.join(', ')}</p>
+            </div>
+            <div>
+              <h3>Genre: </h3>
+              <p>{genres.join(', ')}</p>
+            </div>
+            <div>
+              <h3>Budget: </h3>
+              <p>{movieInfo.budget}$</p>
+            </div>
+            <div>
+              <h3>Age restriction: </h3>
+              <p>{movieInfo.ageRestriction}+</p>
+            </div>
           </div>
         </div>
       </div>
