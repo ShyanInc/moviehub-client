@@ -27,7 +27,9 @@ export const Movie = ({ movieInfo }: Props) => {
             width={200}
             height={300}
           />
-          <button className={s.watchTrailerBtn}>WATCH TRAILER</button>
+          <button className={s.watchTrailerBtn}>
+            <a href={movieInfo.trailer}>WATCH TRAILER</a>
+          </button>
         </div>
         <div className={s.movieDetails}>
           <div>
@@ -51,8 +53,28 @@ export const Movie = ({ movieInfo }: Props) => {
               <p>{genres.join(', ')}</p>
             </div>
             <div>
+              <h3>Actors: </h3>
+              <p>{movieInfo.actors.join(', ')}</p>
+            </div>
+            <div>
+              <h3>Director: </h3>
+              <p>{movieInfo.director.join(', ')}</p>
+            </div>
+            <div>
+              <h3>Screenwriter: </h3>
+              <p>{movieInfo.screenwriters.join(', ')}</p>
+            </div>
+            <div>
+              <h3>Producers: </h3>
+              <p>{movieInfo.producers.join(', ')}</p>
+            </div>
+            <div>
               <h3>Budget: </h3>
               <p>{movieInfo.budget}$</p>
+            </div>
+            <div>
+              <h3>Duration: </h3>
+              <p>{movieInfo.duration} min.</p>
             </div>
             <div>
               <h3>Age restriction: </h3>
