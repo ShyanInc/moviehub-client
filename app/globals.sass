@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&family=Montserrat+Alternates&family=Roboto&display=swap')
+\:root
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace
+  // FONTS
+  --luxurious-font: 'Luxurious Script', cursive
+  --montserrat-font: 'Montserrat Alternates', sans-serif
+  // COLORS
+  --white: #fff
+  --uniq-text: #6A040F
+  --second-text: #333
+  --black: #000
+  --main-card-back: #fff
+  --card-title-background: rgba(117, 117, 117, 0.2)
+  // BACKGROUND GRADIENT
+  --item-card-background-gradient: linear-gradient(127deg, rgba(221, 214, 243, 0.50) 0.5%, rgba(250, 172, 168, 0.50) 99.38%)
+
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+
+html, body
+  overflow-x: hidden
+
+body
+  color: var(--white)
+  background: var(--black)
+
+  main
+    width: 100%
+    display: flex
+    flex-direction: column
+    flex: 1
+    justify-content: center
+    align-items: center
+    background-color: var(--card-title-background)
+    font-family: var(--montserrat-font)
+
+.container
+  max-width: 1536px
+  margin: 0 auto
+  padding: 0 20px
+  width: 100%
+  display: flex
+  flex-direction: column
+
+@media (max-width: 1280px)
+  .container
+    max-width: 1024px
+
+@media (max-width: 1024px)
+  .container
+    max-width: 768px
+
+@media (max-width: 768px)
+  .container
+    width: 100%
+
+@media (max-width: 640px)
+  .container
+    padding: 0 12px

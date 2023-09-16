@@ -1,0 +1,39 @@
+.profileCards
+    margin: 50px 0
+    height: 720px
+    display: flex
+    flex-direction: row
+    justify-content: space-evenly
+    gap: 50px
+
+    .userCard
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        align-items: center
+
+        .topUserCard
+            display: flex
+            flex-direction: column
+            align-items: center
+            gap: 10px
+
+            .avatar
+                height: 250px
+                width: 250px
+
+        .bottomUserCard
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            height: 80%
+            div
+                &:first-child
+                    display: flex
+                    gap: 210px
+            p  
+                justify-self: flex-end
+
+    .lastWatchedCard
+        width: 70% !important

@@ -1,0 +1,143 @@
+.header
+  min-height: 100px
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  background-color: var(--black)
+  color: var(--white)
+  @media(max-width: 640px)
+    padding: 12px
+
+  .navigation
+    display: flex
+    gap: 40px
+
+    a
+      font-size: 32px
+      color: var(--white)
+      text-align: center
+      font-style: normal
+      font-weight: 400
+      line-height: normal
+      text-decoration-line: underline
+      @media(max-width: 1024px)
+        font-size: 24px
+
+  div
+    display: flex
+    flex-direction: row
+    align-items: center
+
+    .user_search
+      display: flex
+      justify-content: flex-end
+      max-width: fit-content
+
+      .search_block
+        width: 100%
+        @media(max-width: 768px)
+          width: 40%
+
+        .search
+          border-radius: 50px
+          border: none
+          box-shadow: 0 0 0 var(--uniq-text)
+          animation: pulse 3s infinite
+
+        .search_icon
+          width: 0
+          color: var(--second-text)
+          position: relative
+          right: 20px
+
+  .Auth
+    margin-left: 30px
+    div
+      gap: 10px
+      a
+        &:first-of-type
+          color: var(--white)
+
+    @media(max-width: 1024px)
+      margin-left: 5px
+
+    a
+      color: var(--uniq-text)
+      text-decoration: underline
+      text-wrap: nowrap
+
+      &:hover
+        color: var(--white)
+
+.BurgerMenuIcon
+  display: none
+
+@-webkit-keyframes pulse
+  0%
+  -webkit-box-shadow: 0 0 2.5px 1px #fff
+
+  75%
+  -webkit-box-shadow: 0 0 20 px 5 px var(--uniq-text)
+
+  100%
+  -webkit-box-shadow: 0 0 0 2.5 px var(--uniq-text)
+
+@keyframes pulse
+  0%
+    -moz-box-shadow: 0 0 2.5px 1px #fff
+    box-shadow: 0 0 2.5px 1px #fff
+
+  75%
+    -moz-box-shadow: 0 0 20px 5px var(--uniq-text)
+    box-shadow: 0 0 20px 5px var(--uniq-text)
+
+  100%
+    -moz-box-shadow: 0 0 0 2.5px var(--uniq-text)
+    box-shadow: 0 0 0 2.5px var(--uniq-text)
+
+@media screen and (max-width:768px)
+  @keyframes cross
+    25%
+      transform: scale(0.5)
+    50%
+      transform: scale(0)
+    75%
+      transform: scale(0.5)
+    100%
+      transform: scale(1)
+  .navigation
+    display: none !important
+
+  .navigation ~ div .search_block
+    margin-right: 25px
+    .search
+      width: 10rem
+
+  .BurgerMenuIcon
+    z-index: 2
+    display: block
+    font-size: 24px
+
+  .BurgerMenuIcon
+    svg
+      &:hover
+        animation: cross 2s infinite
+
+  .burgerMenuList
+    display: block
+    position: absolute
+    text-align: center
+    top: 0
+    left: 0
+    height: 150%
+    width: 100%
+    background-color: var(--black)
+    z-index: 1
+    *
+      font-size: 24px
+      color: var(--uniq-text)
+
+  .Auth
+    div
+      display: none !important
