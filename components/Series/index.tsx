@@ -18,7 +18,7 @@ const Series = ({ initialSeries }: Props) => {
     dispatch(setSeries(initialSeries));
   }, [dispatch, initialSeries]);
 
-  return <CardItemToMap name='Series' array={series} />;
+  return <CardItemToMap name='Series' array={series}/>;
 };
 
 export default Series;

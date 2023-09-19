@@ -1,10 +1,8 @@
 'use client';
-
-import { currPath } from '@/app/helpers/pathName';
 import { Genre } from '@/types/types';
 import { Pagination } from 'antd';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import s from './style.module.sass';
 import ratingIcon from '@/public/assets/img/star.png';
 import { RatingIcon } from '../SVG/RatingIcon';
@@ -13,20 +11,34 @@ import Link from 'next/link';
 interface Props {
   name: string;
   array: any[];
+  size?: number;
 }
 
-export default function CardItemToMap({ name, array }: Props) {
+export default function CardItemToMap({ name, array, size }: Props) {
+  console.log(array);
+
   const [page, setPage] = useState({
     pageNumber: 1,
-    pageSize: 5,
-    pageTotal: array.length,
+    pageSize: 10,
   });
+
+  useEffect(() => {
+    if (size) setPage({ ...page, pageSize: size });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [size]);
+
   const sliceArray = (array: any[], pageNumber: number, pageSize: number) => {
     const start = (pageNumber - 1) * pageSize;
     const end = start + pageSize;
     return array.slice(start, end);
   };
-  console.log(currPath());
+
+  const paginationHandler = (pageNumber: any) => {
+    setPage({
+      ...page,
+      pageNumber,
+    });
+  };
   return (
     <>
       <h1 className={s.cardName}>{name}</h1>
@@ -100,9 +112,11 @@ export default function CardItemToMap({ name, array }: Props) {
       </div>
       <Pagination
         className={s.pagination}
-        defaultCurrent={page.pageNumber}
+        current={page.pageNumber}
+        defaultCurrent={1}
         pageSize={page.pageSize}
-        total={page.pageTotal}
+        total={array?.length}
+        onChange={paginationHandler}
       />
     </>
   );
