@@ -1,7 +1,11 @@
+import s from "./not-found.module.sass"
+import { PageNotFound } from "../components/SVG/Not-Found"
+
 export default function NotFound() {
     return (
         <main>
-            <h1 style={{ color: "var(--uniq-text)" }}>Not Found</h1>
+            <PageNotFound></PageNotFound>
+            <h1 className={s.error}>Page Not Found</h1>
         </main>
     );
 }
