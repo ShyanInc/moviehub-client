@@ -4,6 +4,19 @@ export interface Role {
   description: string;
 }
 
+// трошки костиля
+export interface ISessionUser {
+  accessToken?: string,
+  birthDate?: string,
+  exp?: number,
+  iat?: number,
+  jti?: string,
+  name?: string,
+  status?: string,
+  surname?: string,
+  username?: string
+}
+
 export interface User {
   id: number;
   email: string;
