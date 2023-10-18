@@ -1,10 +1,15 @@
 'use client';
-import { Button, Form,Card, Input, message } from 'antd';
+import { Button, Form, Card, Input, message } from 'antd';
 import { signIn } from 'next-auth/react';
 import s from './style.module.sass';
 import Link from 'antd/es/typography/Link';
+import { useUnloginSecurity } from '@/components/Hooks/hooks';
+import { useRouter } from 'next/navigation';
 
 export default function Signin() {
+  const router = useRouter();
+  const session = useUnloginSecurity();
+
   const [form] = Form.useForm();
 
   const onFinish = async () => {
@@ -19,6 +24,7 @@ export default function Signin() {
         message.error('Invalid credentials');
       } else {
         message.success('Login success!');
+        router.push('/profile');
       }
     } catch (err) {
       console.log(err);
@@ -32,48 +38,48 @@ export default function Signin() {
   return (
     <main>
       <Card>
-      <h1 className={s.formTitle}>Sign In</h1>
-      <Form
-        form={form}
-        layout='vertical'
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        className={s.signInForm + ' container'}
-      >
-        
-        <Form.Item
-          label='Username'
-          name={'username'}
-          rules={[
-            { required: true, message: 'Please input your username' },
-            { min: 3, max: 18, message: 'Min length is 3, Max length is 18' },
-          ]}
+        <h1 className={s.formTitle}>Sign In</h1>
+        <Form
+          form={form}
+          layout='vertical'
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          className={s.signInForm + ' container'}
         >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label='Password'
-          name={'password'}
-          rules={[
-            { required: true, message: 'Please input your password' },
-            {
-              min: 4,
-              max: 32,
-              message: 'Min length is 4, Max length is 32',
-            },
-          ]}
-        >
-          <Input.Password type='password' />
-        </Form.Item>
-        <div className={s.buttons}>
-          <Button type='primary' htmlType='submit'>
-            Sign In
-          </Button>
-        </div>
-      </Form>
-      <p className={s.registerAcc}>
-        Dont have account ?
-        <br/>
+
+          <Form.Item
+            label='Username'
+            name={'username'}
+            rules={[
+              { required: true, message: 'Please input your username' },
+              { min: 3, max: 18, message: 'Min length is 3, Max length is 18' },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label='Password'
+            name={'password'}
+            rules={[
+              { required: true, message: 'Please input your password' },
+              {
+                min: 4,
+                max: 32,
+                message: 'Min length is 4, Max length is 32',
+              },
+            ]}
+          >
+            <Input.Password type='password' />
+          </Form.Item>
+          <div className={s.buttons}>
+            <Button type='primary' htmlType='submit'>
+              Sign In
+            </Button>
+          </div>
+        </Form>
+        <p className={s.registerAcc}>
+          Dont have account ?
+          <br />
           <Link href={'/auth/signup'}>Create Account</Link>
         </p>
       </Card>

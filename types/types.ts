@@ -4,7 +4,6 @@ export interface Role {
   description: string;
 }
 
-// трошки костиля
 export interface ISessionUser {
   accessToken?: string,
   birthDate?: string,

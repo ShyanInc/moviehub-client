@@ -2,6 +2,7 @@
 import { Button, Card, Form, Input, message } from 'antd';
 import s from './style.module.sass';
 import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 type Props = {
   signUp: (
@@ -12,6 +13,7 @@ type Props = {
 };
 
 export const SignupForm = ({ signUp }: Props) => {
+  const router = useRouter();
   const [form] = Form.useForm();
 
   const onFinish = async () => {
@@ -28,6 +30,7 @@ export const SignupForm = ({ signUp }: Props) => {
           redirect: false,
         });
         message.success('Register success!');
+        router.push('/profile');
       } else {
         message.error('Register failed!');
       }

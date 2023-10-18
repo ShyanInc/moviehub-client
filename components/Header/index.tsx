@@ -19,6 +19,7 @@ export default function HeaderComponent() {
       <div className={s.navigation}>
         <Link href={'/movies'}>Movies</Link>
         <Link href={'/series'}>Series</Link>
+        <Link href={'/auth/signin'}>test</Link>
       </div>
 
       <div>
