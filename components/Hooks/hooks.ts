@@ -27,11 +27,10 @@ const useLoginSecurity = (): ISecurityResult => {
   useEffect(() => {
     Session();
   }, []);
-
   return { user: user, loading: isLoading, loginStatus: isLogged };
 };
 
-const useUnloginSecurity = () => {
+const useUnloginSecurity = (): any => {
   const [session, setSession] = useState<any>();
   const router = useRouter();
   const SIGN_IN_PATH = 'auth/signin';
@@ -41,19 +40,26 @@ const useUnloginSecurity = () => {
 
   async function Session() {
     const data = await getSession();
-    setSession(data);
-
-    if (session && (pathname === SIGN_IN_PATH || pathname === SIGN_UP_PATH)) {
-      return router.push('/profile');
-    }
-    return session;
+    return data;
   }
 
   useEffect(() => {
-    Session();
+    Session()
+      .then((data) => { setSession(data); });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (session && (pathname === SIGN_IN_PATH || pathname === SIGN_UP_PATH)) {
+      return router.push('/profile');
+    }
+  }, [session]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return session!! && { session: session };
 };
 
-export { useLoginSecurity, useUnloginSecurity };
+const useCurrentPath = (): string => {
+  const pathname = usePathname();
+  return pathname.slice(1);
+}
+
+export { useLoginSecurity, useUnloginSecurity, useCurrentPath };

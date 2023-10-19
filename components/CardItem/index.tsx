@@ -7,6 +7,7 @@ import s from './style.module.sass';
 import ratingIcon from '@/public/assets/img/star.png';
 import { RatingIcon } from '../SVG/RatingIcon';
 import Link from 'next/link';
+import { useCurrentPath } from '../Hooks/hooks';
 
 interface Props {
   name: string;
@@ -15,8 +16,7 @@ interface Props {
 }
 
 export default function CardItemToMap({ name, array, size }: Props) {
-  console.log(array);
-
+  const path = useCurrentPath();
   const [page, setPage] = useState({
     pageNumber: 1,
     pageSize: 10,
@@ -72,11 +72,9 @@ export default function CardItemToMap({ name, array, size }: Props) {
                 alt='Card Poster'
                 quality={75}
               />
-
-              {/* currPath ? movies || series */}
               <div className={s.itemInfo}>
                 <div className={s.translatedTitle}>
-                  <Link href={`/movies/${i.id}`}>
+                  <Link href={`/${path}/${i.id}`}>
                     <p>{i.translatedTitle}</p>
                   </Link>
                 </div>

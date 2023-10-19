@@ -3,6 +3,7 @@ import { Button, Card, Form, Input, message } from 'antd';
 import s from './style.module.sass';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { useUnloginSecurity } from '@/components/Hooks/hooks';
 
 type Props = {
   signUp: (
@@ -13,6 +14,7 @@ type Props = {
 };
 
 export const SignupForm = ({ signUp }: Props) => {
+  const session = useUnloginSecurity();
   const router = useRouter();
   const [form] = Form.useForm();
 

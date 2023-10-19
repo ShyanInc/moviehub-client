@@ -66,7 +66,9 @@ export interface Series {
   ageRestriction: number;
   episodeDuration: number;
   coverImage: string;
-  trailer: string;
+  trailer?: string;
   rating: number;
   description: string;
+  budget?: string[];
+  duration?: number;
 }
