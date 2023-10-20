@@ -11,12 +11,13 @@ import { useCurrentPath } from '../Hooks/hooks';
 
 interface Props {
   name: string;
-  array: any[];
+  array: object[];
   size?: number;
 }
 
 export default function CardItemToMap({ name, array, size }: Props) {
   const path = useCurrentPath();
+  const [dataArray, setDataArray] = useState<object[]>([]);
   const [page, setPage] = useState({
     pageNumber: 1,
     pageSize: 10,
@@ -24,13 +25,17 @@ export default function CardItemToMap({ name, array, size }: Props) {
 
   useEffect(() => {
     if (size) setPage({ ...page, pageSize: size });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [size]);
+  }, [size]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const sliceArray = (array: any[], pageNumber: number, pageSize: number) => {
-    const start = (pageNumber - 1) * pageSize;
-    const end = start + pageSize;
-    return array.slice(start, end);
+  useEffect(() => {
+    const temp = sliceArray(array);
+    setDataArray(temp);
+  }, [array, page]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const sliceArray = (array: object[]) => {
+    const start = (page.pageNumber - 1) * page.pageSize;
+    const end = start + page.pageSize;
+    return array?.slice(start, end);
   };
 
   const paginationHandler = (pageNumber: any) => {
@@ -43,7 +48,7 @@ export default function CardItemToMap({ name, array, size }: Props) {
     <>
       <h1 className={s.cardName}>{name}</h1>
       <div className={s.itemsCard}>
-        {sliceArray(array, page.pageNumber, page.pageSize).map((i: any) => (
+        {dataArray.map((i: any) => (
           <div key={i.id} className={s.item}>
             <div className={s.itemRating}>
               <div>

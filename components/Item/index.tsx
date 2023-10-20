@@ -10,19 +10,19 @@ import { Card } from 'antd';
 type Props = {
   itemInfo: MovieType | SeriesType;
 };
-//finish item  redo styles file 
+
 export const Item = ({ itemInfo: itemInfo }: Props) => {
   console.log(itemInfo);
 
   const genres = itemInfo.genres.map((genre) => genre.description);
 
   return (
-    <Card className={s.movieBlock}>
-      <div className={s.movieRating}>
+    <Card className={s.itemBlock}>
+      <div className={s.itemRating}>
         <p className={s.rating}>{itemInfo.rating}</p>
         <p className={s.marksCount}>1291 marks</p>
       </div>
-      <div className={s.movieInfo}>
+      <div className={s.itemInfo}>
         <div className={s.hero}>
           <Image
             className={s.coverImage}
@@ -35,7 +35,7 @@ export const Item = ({ itemInfo: itemInfo }: Props) => {
             <a href={itemInfo.trailer}>WATCH TRAILER</a>
           </button>}
         </div>
-        <div className={s.movieDetails}>
+        <div className={s.itemDetails}>
           <div>
             <h1>{itemInfo.translatedTitle}</h1>
             <div className={s.originalTitle}>{itemInfo.originalTitle}</div>
