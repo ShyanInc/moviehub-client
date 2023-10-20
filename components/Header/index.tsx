@@ -5,6 +5,7 @@ import { Header } from 'antd/es/layout/layout';
 import Link from 'next/link';
 import { useState } from 'react';
 import UserAvatar from '../UserAvatar';
+
 import s from './style.module.sass';
 import { Logo } from '../SVG/Logo';
 

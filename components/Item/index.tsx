@@ -10,7 +10,7 @@ import { Card } from 'antd';
 type Props = {
   itemInfo: MovieType | SeriesType;
 };
-
+// special item for movie and for series to fix problem with interfaces 
 export const Item = ({ itemInfo: itemInfo }: Props) => {
   console.log(itemInfo);
 

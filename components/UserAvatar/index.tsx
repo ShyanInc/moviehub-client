@@ -1,32 +1,52 @@
-'use client'
-import s from "../Header/style.module.sass"
-import { UserOutlined } from "@ant-design/icons/lib/icons";
-import Avatar from "antd/es/avatar/avatar";
-import { signOut, useSession } from "next-auth/react";
-import Link from "next/link";
-import UserBurgerMenu from "../UserMenu";
+'use client';
+import s from '../Header/style.module.sass';
+import { UserOutlined } from '@ant-design/icons/lib/icons';
+import Avatar from 'antd/es/avatar/avatar';
+import { signOut, useSession } from 'next-auth/react';
+import Link from 'next/link';
+import UserBurgerMenu from '../UserMenu';
+import { useEffect, useState } from 'react';
 
+export const UserAvatar = () => {
+  return <>{<Avatar icon={<UserOutlined />} />}</>;
+};
 
-export const UserAvatar = ({ session }: { session: any }) => {
-  return (
-    <>
-      {!session?.data && <Avatar icon={<UserOutlined />} />}
-    </>
-  )
-}
+const UserCompoment = () => {
+  const [sessionState, setSessionState] = useState<any>({});
+  const { data, status } = useSession();
 
-export default function UserCompoment() {
-  const session = useSession();
+  useEffect(() => {
+    if (status != 'loading') setSessionState(data);
+  }, [data, status]);
 
   return (
     <>
       <div className={s.Auth}>
         <div>
-          {!session.data && <><UserAvatar session={session} /><Link href={"/profile"}>Guest</Link><Link href="/api/auth/signin">Sign In</Link></>}
-          {session.data && <Link href="#" onClick={() => signOut({ callbackUrl: "/", redirect: true })}>Sign Out</Link>}
+          {!sessionState && (
+            <>
+              <UserAvatar />
+              <Link href={'/profile'}>Guest</Link>
+              <Link href='/api/auth/signin'>Sign In</Link>
+            </>
+          )}
+          {sessionState && (
+            <>
+              {/* temporary profile link  */}
+              <Link href={'/profile'}>Profile</Link>
+              <Link
+                href='#'
+                onClick={() => signOut({ callbackUrl: '/', redirect: true })}
+              >
+                Sign Out
+              </Link>
+            </>
+          )}
         </div>
       </div>
-      <UserBurgerMenu userIcon={<UserAvatar session={session} />} />
+      <UserBurgerMenu userIcon={<UserAvatar />} />
     </>
   );
-}
+};
+
+export default UserCompoment;
