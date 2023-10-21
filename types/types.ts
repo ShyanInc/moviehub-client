@@ -4,6 +4,18 @@ export interface Role {
   description: string;
 }
 
+export interface ISessionUser {
+  accessToken?: string,
+  birthDate?: string,
+  exp?: number,
+  iat?: number,
+  jti?: string,
+  name?: string,
+  status?: string,
+  surname?: string,
+  username?: string
+}
+
 export interface User {
   id: number;
   email: string;
@@ -54,7 +66,9 @@ export interface Series {
   ageRestriction: number;
   episodeDuration: number;
   coverImage: string;
-  trailer: string;
+  trailer?: string;
   rating: number;
   description: string;
+  budget?: string[];
+  duration?: number;
 }

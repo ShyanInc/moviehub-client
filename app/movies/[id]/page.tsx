@@ -1,7 +1,7 @@
 import s from '../../../components/Movie/style.module.sass';
 import Image from 'next/image';
 import { ShortDescription } from '@/components/ShortDescription';
-import { Movie } from '@/components/Movie';
+import { Item } from '@/components/Item';
 import { moviesApi } from '@/api/api';
 
 type Props = {
@@ -11,12 +11,13 @@ type Props = {
 };
 
 // TODO: finish movie page layout
+// TODO: remade item and add a for series page 
 export default async function MoviePage({ params }: Props) {
   const movieInfo = await moviesApi.getMovieById(params.id.toString());
 
   return (
     <main>
-      <Movie movieInfo={movieInfo} />
+      <Item itemInfo={movieInfo} />
     </main>
   );
 }

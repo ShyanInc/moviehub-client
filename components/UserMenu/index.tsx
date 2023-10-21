@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import s from '../Header/style.module.sass';
 import Link from 'next/link';
-import { CloseOutlined, UnorderedListOutlined } from '@ant-design/icons';
+import { CloseOutlined, UnorderedListOutlined, UserOutlined } from '@ant-design/icons';
 
 const links = [
   {
@@ -46,7 +46,7 @@ export default function UserBurgerMenu({ userIcon }: { userIcon: any }) {
             ))}
             <li>
               <Link href={'/profile'} onClick={toggleMenu}>
-                {userIcon}
+                <UserOutlined />
               </Link>
             </li>
           </ul>

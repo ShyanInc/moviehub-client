@@ -1,5 +1,6 @@
 import Image from "next/image";
 import svgImage from "./not-found.svg"
+
 export const PageNotFound = () => {
     return (
         <Image src={svgImage.src}

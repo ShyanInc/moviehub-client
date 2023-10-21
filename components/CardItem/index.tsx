@@ -7,16 +7,17 @@ import s from './style.module.sass';
 import ratingIcon from '@/public/assets/img/star.png';
 import { RatingIcon } from '../SVG/RatingIcon';
 import Link from 'next/link';
+import { useCurrentPath } from '../Hooks/hooks';
 
 interface Props {
   name: string;
-  array: any[];
+  array: object[];
   size?: number;
 }
 
 export default function CardItemToMap({ name, array, size }: Props) {
-  console.log(array);
-
+  const path = useCurrentPath();
+  const [dataArray, setDataArray] = useState<object[]>([]);
   const [page, setPage] = useState({
     pageNumber: 1,
     pageSize: 10,
@@ -24,13 +25,17 @@ export default function CardItemToMap({ name, array, size }: Props) {
 
   useEffect(() => {
     if (size) setPage({ ...page, pageSize: size });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [size]);
+  }, [size]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const sliceArray = (array: any[], pageNumber: number, pageSize: number) => {
-    const start = (pageNumber - 1) * pageSize;
-    const end = start + pageSize;
-    return array.slice(start, end);
+  useEffect(() => {
+    const temp = sliceArray(array);
+    setDataArray(temp);
+  }, [array, page]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const sliceArray = (array: object[]) => {
+    const start = (page.pageNumber - 1) * page.pageSize;
+    const end = start + page.pageSize;
+    return array?.slice(start, end);
   };
 
   const paginationHandler = (pageNumber: any) => {
@@ -43,7 +48,7 @@ export default function CardItemToMap({ name, array, size }: Props) {
     <>
       <h1 className={s.cardName}>{name}</h1>
       <div className={s.itemsCard}>
-        {sliceArray(array, page.pageNumber, page.pageSize).map((i: any) => (
+        {dataArray.map((i: any) => (
           <div key={i.id} className={s.item}>
             <div className={s.itemRating}>
               <div>
@@ -72,11 +77,9 @@ export default function CardItemToMap({ name, array, size }: Props) {
                 alt='Card Poster'
                 quality={75}
               />
-
-              {/* currPath ? movies || series */}
               <div className={s.itemInfo}>
                 <div className={s.translatedTitle}>
-                  <Link href={`/movies/${i.id}`}>
+                  <Link href={`/${path}/${i.id}`}>
                     <p>{i.translatedTitle}</p>
                   </Link>
                 </div>

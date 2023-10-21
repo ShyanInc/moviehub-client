@@ -1,18 +1,15 @@
-.movieBlock
-  height: 800px
+.itemBlock
+  height: auto
+  min-height: 800px
+  max-height: 1100px
   max-width: 1200px
   width: 100%
-
-  padding: 30px 60px
-
-  display: flex
-  flex-direction: column
-
   background: #fff
   border-radius: 20px
-
+  padding: 30px 60px
+  margin: 50px 0
   color: #333
-
+  
   h1
     font-size: 48px
 
@@ -27,8 +24,9 @@
   button:hover
     cursor: pointer
 
-  .movieRating
-    margin-left: auto
+  .itemRating
+    position: relative
+    left: 95%
 
     .rating
       font-size: 40px
@@ -38,9 +36,8 @@
       font-size: 14px
       color: #757575
 
-  .movieInfo
+  .itemInfo
     margin-top: -26px
-
     display: flex
     gap: 30px
 
@@ -60,8 +57,9 @@
         margin-inline: auto
         width: 175px
         height: 35px
+        text-transform: uppercase
 
-    .movieDetails
+    .itemDetails
       display: flex
       flex-direction: column
       gap: 18px
@@ -74,6 +72,7 @@
         margin-top: 16px
         width: 132px
         height: 36px
+        text-transform: uppercase
 
       .about
         display: flex
@@ -82,4 +81,3 @@
 
         h3, p
           display: inline
-
